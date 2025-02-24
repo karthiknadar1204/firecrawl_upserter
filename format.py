@@ -17,7 +17,7 @@ def format_markdown_and_add_id(file_path):
                 formatted_markdown = '\n'.join(markdown.split('\\n'))
                 element['data']['markdown'] = formatted_markdown
 
-            # Filter metadata fields
+            # Filter metadata fields and add topic
             if 'metadata' in element['data']:
                 metadata = element['data']['metadata']
                 keys_to_keep = [
@@ -26,6 +26,8 @@ def format_markdown_and_add_id(file_path):
                     'scrapeId', 'sourceURL', 'url'
                 ]
                 element['data']['metadata'] = {key: metadata[key] for key in keys_to_keep if key in metadata}
+                # Add topic field
+                element['data']['metadata']['topic'] = 'computer networks'
 
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=2)
