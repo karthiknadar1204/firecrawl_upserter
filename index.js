@@ -1,10 +1,10 @@
-// Install with npm install @mendable/firecrawl-js
+
 import FireCrawlApp from '@mendable/firecrawl-js';
 import fs from 'fs';
 
 async function scrapeUrls() {
-	const app = new FireCrawlApp({ apiKey: "fc-18bce297f00f4d1fbf015feaaeba4d60" });
-	const urls = JSON.parse(fs.readFileSync('urls5.json', 'utf8'));
+	const app = new FireCrawlApp({ apiKey: "" });
+	const urls = JSON.parse(fs.readFileSync('operating_systems/geeks_for_geeks/urls/urls4.json', 'utf8'));
 	const results = [];
 
 	for (const url of urls) {
@@ -22,8 +22,8 @@ async function scrapeUrls() {
 		}
 	}
 
-	fs.writeFileSync('results5.json', JSON.stringify(results, null, 2));
-	console.log('Scraping completed. Results saved to results.json');
+	fs.writeFileSync('operating_systems/geeks_for_geeks/results/results4.json', JSON.stringify(results, null, 2));
+	console.log('Scraping completed. Results saved to results4.json');
 }
 
 scrapeUrls();

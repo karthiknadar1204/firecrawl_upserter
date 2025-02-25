@@ -4,7 +4,7 @@ def format_markdown_and_add_id(file_path):
     with open(file_path, 'r') as file:
         data = json.load(file)
 
-    for idx, element in enumerate(data, start=1):
+    for idx, element in enumerate(data, start=91):
         element['id'] = idx
         if 'data' in element:
             # Remove HTML data
@@ -27,10 +27,10 @@ def format_markdown_and_add_id(file_path):
                 ]
                 element['data']['metadata'] = {key: metadata[key] for key in keys_to_keep if key in metadata}
                 # Add topic field
-                element['data']['metadata']['topic'] = 'computer networks'
+                element['data']['metadata']['topic'] = 'operating systems'
 
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=2)
 
 # Usage
-format_markdown_and_add_id('results5.json')
+format_markdown_and_add_id('operating_systems/geeks_for_geeks/results/results4.json')
